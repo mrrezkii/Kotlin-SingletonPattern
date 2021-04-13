@@ -1,7 +1,7 @@
 class SingletonApp private constructor() {
     companion object {
         private var instance: SingletonApp? = null
-        fun getInstance() = synchronized(this) {
+        operator fun invoke() = synchronized(this) {
             if (instance == null) instance = SingletonApp()
             instance
         }
@@ -9,7 +9,7 @@ class SingletonApp private constructor() {
 }
 
 fun main() {
-    println(SingletonApp.getInstance())
-    println(SingletonApp.getInstance())
-    println(SingletonApp.getInstance())
+    println(SingletonApp)
+    println(SingletonApp)
+    println(SingletonApp)
 }
